@@ -1,0 +1,8 @@
+$ git log --oneline
+1a212f7 Add the costs line
+8337a00 Correct the revenue figure
+1eed4da Add the first draft of the report
+$ git log --format='%h %an %s'
+1a212f7 Ada Lovelace Add the costs line
+8337a00 Ada Lovelace Correct the revenue figure
+1eed4da Ada Lovelace Add the first draft of the report

@@ -1,0 +1,13 @@
+$ git log -1
+commit 31674e8f226eb0981df19b3dee9d610345bee1b2
+Author: Ada Lovelace <ada@example.com>
+Date:   Wed Mar 6 16:00:00 2024 +0000
+
+    test: cover the parser
+$ git log --oneline
+31674e8 test: cover the parser
+2997b23 refactor: rename the parse helper
+9b5643d fix: handle an empty line in the parser
+bf2d618 feat: add the command line entry point
+c96fe7e feat: add the parser
+e3aabc4 docs: add the readme

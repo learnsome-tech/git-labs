@@ -1,0 +1,10 @@
+$ git merge --no-ff feature
+Merge made by the 'ort' strategy.
+ notes.txt | 1 +
+ 1 file changed, 1 insertion(+)
+$ git log --oneline --graph
+*   b8cd61d Merge branch 'feature'
+|\  
+| * 6fa2cab Add a second line
+|/  
+* 5a9bfe1 Add notes

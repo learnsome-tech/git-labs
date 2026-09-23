@@ -1,0 +1,5 @@
+$ git ls-remote origin
+0000000000000000000000000000000000000000	HEAD
+0000000000000000000000000000000000000000	refs/heads/main
+$ git remote show origin
+* remote origin

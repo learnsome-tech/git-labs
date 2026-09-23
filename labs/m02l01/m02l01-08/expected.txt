@@ -1,0 +1,13 @@
+$ git diff --staged
+diff --git a/recipes.md b/recipes.md
+index d90bb63..19db8c9 100644
+--- a/recipes.md
++++ b/recipes.md
+@@ -1,4 +1,5 @@
+ Pancakes
++Serves two.
+ Mix flour and milk.
+ Fry in butter.
+$ git diff --stat
+ recipes.md | 1 +
+ 1 file changed, 1 insertion(+)

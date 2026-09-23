@@ -1,0 +1,7 @@
+$ git config user.name
+Ada Lovelace
+$ git config --local user.name 'Ada L Byron'
+$ git config user.name
+Ada L Byron
+$ git config --show-origin user.name
+file:.git/config	Ada L Byron

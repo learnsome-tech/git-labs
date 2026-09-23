@@ -1,0 +1,8 @@
+$ printf 'scratch.txt\n' >> .git/info/exclude
+$ printf '!plan.md\n' > notes/.gitignore
+$ git status --short --untracked-files=all
+?? notes/.gitignore
+?? notes/keep.txt
+?? notes/plan.md
+$ git check-ignore -v notes/plan.md
+notes/.gitignore:1:!plan.md	notes/plan.md

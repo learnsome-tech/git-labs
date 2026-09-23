@@ -1,0 +1,7 @@
+feat(auth)!: require a token on every session endpoint
+
+Sessions used to accept an unauthenticated refresh, which let an
+expired client keep itself alive. Every session endpoint now checks
+the bearer token.
+
+BREAKING CHANGE: clients must send Authorization on refresh.

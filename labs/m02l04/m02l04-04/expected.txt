@@ -1,0 +1,12 @@
+$ git log --oneline --stat -1 HEAD~1
+2997b23 refactor: rename the parse helper
+ cli.py    | 4 ++--
+ parser.py | 2 +-
+ 2 files changed, 3 insertions(+), 3 deletions(-)
+$ git log --oneline --name-status -1
+31674e8 test: cover the parser
+A	test_parser.py
+$ git log --oneline -- parser.py
+2997b23 refactor: rename the parse helper
+9b5643d fix: handle an empty line in the parser
+c96fe7e feat: add the parser

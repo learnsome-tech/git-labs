@@ -1,0 +1,9 @@
+$ git branch -v
+  feature 78a12d0 Start the feature
+* main    cfbbc66 Carry on with main
+$ git log --oneline --graph --all
+* cfbbc66 Carry on with main
+| * 78a12d0 Start the feature
+|/  
+* 87a8ebf Add a second line
+* e06f066 Add notes

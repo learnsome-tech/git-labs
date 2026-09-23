@@ -1,0 +1,10 @@
+$ git remote rename origin hub
+$ git remote -v
+hub	../server.git (fetch)
+hub	../server.git (push)
+$ git branch -r
+  hub/main
+$ git remote set-url hub ../mirror.git
+$ git remote -v
+hub	../mirror.git (fetch)
+hub	../mirror.git (push)

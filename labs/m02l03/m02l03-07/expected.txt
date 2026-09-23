@@ -1,0 +1,13 @@
+$ git commit -m 'wip logging' 2>&1; echo "exit code $?"
+commit-msg: subject is not a conventional commit
+  want: type(optional scope): description
+  got:  wip logging
+exit code 1
+$ git commit -m 'feat(log): record every failed probe'
+[main 3d12f30] feat(log): record every failed probe
+ 1 file changed, 1 insertion(+)
+$ git log --oneline
+3d12f30 feat(log): record every failed probe
+1ce643c feat(api): add a health endpoint
+$ git commit --allow-empty --no-verify -m 'wip again'
+[main 906b623] wip again

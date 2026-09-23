@@ -1,0 +1,7 @@
+$ git switch --detach -
+HEAD is now at ac70779 Try something out
+$ git switch -c experiment
+Switched to a new branch 'experiment'
+$ git branch
+* experiment
+  main

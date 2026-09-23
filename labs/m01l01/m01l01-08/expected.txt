@@ -1,0 +1,6 @@
+$ cat report-final.md
+Revenue is up four percent.
+$ git hash-object report-final.md
+4d9e40cf9b756e834b352deecc8268fdd67bebf1
+$ git hash-object report-really-final.md
+4d9e40cf9b756e834b352deecc8268fdd67bebf1

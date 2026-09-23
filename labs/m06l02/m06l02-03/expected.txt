@@ -1,0 +1,8 @@
+$ git rebase -i HEAD~3
+[detached HEAD 4b5c6d7] Add login button
+ Date: Thu Jan 1 00:00:00 1970 +0000
+ 1 file changed, 1 insertion(+)
+[detached HEAD 8e9f0a1] Add user profile page
+ Date: Thu Jan 1 00:00:00 1970 +0000
+ 1 file changed, 1 insertion(+)
+Successfully rebased and updated refs/heads/main.

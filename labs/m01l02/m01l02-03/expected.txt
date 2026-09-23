@@ -1,0 +1,11 @@
+$ git --version
+git version 2.54.0 (Apple Git-157)
+$ git config --global --list
+init.defaultbranch=main
+core.abbrev=7
+core.pager=cat
+color.ui=false
+commit.gpgsign=false
+tag.gpgsign=false
+gc.auto=0
+$ git config --global user.name

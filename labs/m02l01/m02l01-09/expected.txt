@@ -1,0 +1,8 @@
+$ git status --short
+MM recipes.md
+$ git restore --staged recipes.md
+$ git status --short
+ M recipes.md
+$ git diff --stat
+ recipes.md | 2 ++
+ 1 file changed, 2 insertions(+)

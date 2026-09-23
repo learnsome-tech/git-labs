@@ -1,0 +1,9 @@
+$ git merge feature
+Updating 5a9bfe1..23ab440
+Fast-forward
+ notes.txt | 2 ++
+ 1 file changed, 2 insertions(+)
+$ git log --oneline --graph
+* 23ab440 Add a third line
+* 6fa2cab Add a second line
+* 5a9bfe1 Add notes

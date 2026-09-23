@@ -1,0 +1,8 @@
+$ git cat-file -p HEAD
+tree 7ba81e0b106aee605de545aa089ce4f0c92ae65d
+parent a1531bb0f746e420cfdec1405c8380ca57182e43
+parent b8af5d2b2eae2f0007e9bade475f35ce4228b5c3
+author Ada Lovelace <ada@example.com> 1709557200 +0000
+committer Ada Lovelace <ada@example.com> 1709557200 +0000
+
+Merge branch 'feature'

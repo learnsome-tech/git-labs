@@ -1,0 +1,14 @@
+$ git stash
+Saved working directory and index state WIP on main: 5a9bfe1 Add notes
+$ git status --short
+$ git stash list
+stash@{0}: WIP on main: 5a9bfe1 Add notes
+$ git stash pop
+On branch main
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   notes.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+Dropped refs/stash@{0} (0fd70f4aaacc3e093c628dfdd20caa22a5a1290f)

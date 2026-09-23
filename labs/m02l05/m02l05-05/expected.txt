@@ -1,0 +1,10 @@
+$ git log --oneline
+d2da284 Stop tracking the service token
+9551ed3 Ignore the service token
+132deeb Add the service token
+d1c72ce Add the app config
+$ git log --oneline -- service.env
+d2da284 Stop tracking the service token
+132deeb Add the service token
+$ git show HEAD~1:service.env
+API_TOKEN=hunter2

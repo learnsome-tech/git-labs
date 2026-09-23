@@ -1,0 +1,9 @@
+$ ls
+README.md
+pantry.txt
+$ ls -a
+.
+..
+.git
+README.md
+pantry.txt

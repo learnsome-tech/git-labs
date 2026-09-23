@@ -1,0 +1,13 @@
+$ ls .git
+HEAD
+config
+description
+hooks
+info
+objects
+refs
+$ cat .git/HEAD
+ref: refs/heads/main
+$ ls .git/refs
+heads
+tags

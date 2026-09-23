@@ -1,0 +1,3 @@
+git add prices.md     the index holds this version
+edit prices.md        the working tree moves on
+git status --short    MM prices.md

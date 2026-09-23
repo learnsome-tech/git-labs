@@ -1,0 +1,6 @@
+$ git config --global user.name 'Ada Lovelace'
+$ git config --global user.email ada@example.com
+$ git config user.name
+Ada Lovelace
+$ git config --show-scope user.email
+global	ada@example.com

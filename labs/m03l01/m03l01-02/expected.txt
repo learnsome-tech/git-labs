@@ -1,0 +1,6 @@
+$ git branch
+* main
+$ cat .git/refs/heads/main
+87a8ebfdf95ba7a0bdcecb51b9e61427e2e59914
+$ git rev-parse main
+87a8ebfdf95ba7a0bdcecb51b9e61427e2e59914

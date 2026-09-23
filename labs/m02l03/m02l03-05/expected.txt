@@ -1,0 +1,13 @@
+$ git log --oneline
+65ca020 feat(cli): add a status subcommand
+362f1fc refactor: move the probe into its own module
+cc1c050 fix(api): return a body on a failed probe
+7525f41 docs: describe the health endpoint
+1ce643c feat(api): add a health endpoint
+$ git log --oneline --grep '^feat'
+65ca020 feat(cli): add a status subcommand
+1ce643c feat(api): add a health endpoint
+$ git log --oneline --grep '^feat' --grep '^fix'
+65ca020 feat(cli): add a status subcommand
+cc1c050 fix(api): return a body on a failed probe
+1ce643c feat(api): add a health endpoint

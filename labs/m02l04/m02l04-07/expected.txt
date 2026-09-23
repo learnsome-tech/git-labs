@@ -1,0 +1,14 @@
+$ git show --stat HEAD~2
+commit 9b5643df05d0b913ad9bc4ef654271925b70bf1a
+Author: Ada Lovelace <ada@example.com>
+Date:   Tue Mar 5 14:00:00 2024 +0000
+
+    fix: handle an empty line in the parser
+
+ parser.py | 2 ++
+ 1 file changed, 2 insertions(+)
+$ git show HEAD~2:parser.py
+def split_line(line):
+    if not line:
+        return []
+    return line.split(":", 1)

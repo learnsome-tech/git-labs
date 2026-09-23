@@ -1,0 +1,6 @@
+$ sudo apt install git-all
+$ sudo dnf install git-all
+$ brew install git
+$ xcode-select --install
+$ winget install --id Git.Git -e
+$ # or the installer from git-scm.com/download/win

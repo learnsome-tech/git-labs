@@ -1,0 +1,11 @@
+$ git tag -a v1.0 -m 'Release version one'
+$ git tag
+v1.0
+$ git show v1.0
+tag v1.0
+Tagger: Author Name <author@example.com>
+Date:   Thu Jan 1 00:00:00 1970 +0000
+
+Release version one
+
+commit a1b2c3d4...

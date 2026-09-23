@@ -1,0 +1,8 @@
+$ git log --oneline
+6fa2cab Add a second line
+5a9bfe1 Add notes
+$ git reset --soft HEAD~1
+$ git log --oneline
+5a9bfe1 Add notes
+$ git status --short
+M  notes.txt

@@ -1,0 +1,12 @@
+$ git merge feature
+Merge made by the 'ort' strategy.
+ feature.txt | 1 +
+ 1 file changed, 1 insertion(+)
+ create mode 100644 feature.txt
+$ git log --oneline --graph
+*   58a76de Merge branch 'feature'
+|\  
+| * b8af5d2 Add the feature file
+* | a1531bb Add the main file
+|/  
+* 5a9bfe1 Add notes

@@ -1,0 +1,7 @@
+$ git rev-parse HEAD
+87a8ebfdf95ba7a0bdcecb51b9e61427e2e59914
+$ git cat-file -p HEAD | git hash-object -t commit --stdin
+87a8ebfdf95ba7a0bdcecb51b9e61427e2e59914
+$ git cat-file -p HEAD > c.txt
+$ sed s/second/SECOND/ c.txt | git hash-object -t commit --stdin
+c2c149bd80d5048bf251f9d7ec85c893732e931b

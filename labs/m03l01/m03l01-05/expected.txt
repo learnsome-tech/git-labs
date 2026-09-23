@@ -1,0 +1,9 @@
+$ git branch feature
+$ ls .git/refs/heads
+feature
+main
+$ git rev-parse main feature
+87a8ebfdf95ba7a0bdcecb51b9e61427e2e59914
+87a8ebfdf95ba7a0bdcecb51b9e61427e2e59914
+$ wc -c .git/refs/heads/feature
+      41 .git/refs/heads/feature

@@ -1,0 +1,7 @@
+$ git log --oneline --graph --all
+* a1531bb Add the main file
+| * b8af5d2 Add the feature file
+|/  
+* 5a9bfe1 Add notes
+$ git merge-base main feature
+5a9bfe16534ec50daf8212c6640ef42b1c72010a

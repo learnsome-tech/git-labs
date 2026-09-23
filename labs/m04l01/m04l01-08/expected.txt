@@ -1,0 +1,11 @@
+$ git branch -r
+  origin/main
+$ cat .git/refs/remotes/origin/main
+0000000000000000000000000000000000000000
+$ printf 'salt\n' >> recipe.txt
+$ git commit -q -am 'Add salt'
+$ git log --oneline --decorate -2
+0000000 (HEAD -> main) Add salt
+0000000 (origin/main) Add recipe
+$ cat .git/refs/remotes/origin/main
+0000000000000000000000000000000000000000

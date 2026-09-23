@@ -1,0 +1,8 @@
+$ cat .git/HEAD
+ref: refs/heads/main
+$ git symbolic-ref HEAD
+refs/heads/main
+$ git rev-parse HEAD
+87a8ebfdf95ba7a0bdcecb51b9e61427e2e59914
+$ git rev-parse main
+87a8ebfdf95ba7a0bdcecb51b9e61427e2e59914

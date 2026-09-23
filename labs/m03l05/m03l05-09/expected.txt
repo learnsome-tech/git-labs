@@ -1,0 +1,10 @@
+$ git revert --no-edit HEAD
+[main 714823a] Revert "Add the broken line"
+ Date: Mon Mar 4 12:00:00 2024 +0000
+ 1 file changed, 1 deletion(-)
+$ git log --oneline
+714823a Revert "Add the broken line"
+0f0d3ff Add the broken line
+8e58f21 Add notes
+$ cat notes.txt
+the good line

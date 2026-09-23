@@ -1,0 +1,5 @@
+$ git status --short
+M  notes.txt
+$ git restore --staged notes.txt
+$ git status --short
+ M notes.txt

@@ -1,0 +1,10 @@
+$ git ls-files --stage
+100644 9dd0f8d245d1d3f04e226801c97716b2784038d8 0	notes.txt
+100644 f1017fceccdcd29933ea93fe20007d55cbc95317 0	plan.txt
+$ git cat-file -t :notes.txt
+blob
+$ git cat-file -p :notes.txt
+draft notes
+$ cat notes.txt
+draft notes
+and a second line

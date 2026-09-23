@@ -1,0 +1,8 @@
+$ git rev-parse HEAD~1
+e06f0668e9542ecc8ff201bda598c587d908b02f
+$ git cat-file -p HEAD~1
+tree cb59de63f643b907d77937409565d909fe585ef6
+author Ada Lovelace <ada@example.com> 1709546400 +0000
+committer Ada Lovelace <ada@example.com> 1709546400 +0000
+
+Add notes

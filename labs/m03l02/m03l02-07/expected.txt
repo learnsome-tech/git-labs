@@ -1,0 +1,7 @@
+$ git switch --detach HEAD~1
+HEAD is now at 5a9bfe1 Add notes
+$ cat .git/HEAD
+5a9bfe16534ec50daf8212c6640ef42b1c72010a
+$ git status
+HEAD detached at 5a9bfe1
+nothing to commit, working tree clean

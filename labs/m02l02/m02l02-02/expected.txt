@@ -1,0 +1,11 @@
+$ git commit -m 'Add the request timeout'
+[main (root-commit) 2c1c1d1] Add the request timeout
+ 1 file changed, 1 insertion(+)
+ create mode 100644 config.ini
+$ printf 'retries = 3\n' >> config.ini
+$ printf 'scratch\n' > notes.tmp
+$ git commit -a -m 'Retry three times before giving up'
+[main 7879cd4] Retry three times before giving up
+ 1 file changed, 1 insertion(+)
+$ git status --short
+?? notes.tmp

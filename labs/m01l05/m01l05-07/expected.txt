@@ -1,0 +1,9 @@
+$ git diff --stat
+ plan.txt | 1 +
+ 1 file changed, 1 insertion(+)
+$ git diff --staged --stat
+ plan.txt | 2 ++
+ 1 file changed, 2 insertions(+)
+$ git diff HEAD --stat
+ plan.txt | 3 +++
+ 1 file changed, 3 insertions(+)

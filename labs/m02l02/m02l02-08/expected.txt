@@ -1,0 +1,6 @@
+$ GIT_EDITOR=cat git commit --no-status
+# Subject: one imperative line, capitalised, under fifty characters
+# Then a blank line, then the body: why this change, not what changed
+# Wrap the body near seventy-two columns
+# Trailers last: Refs, Reviewed-by, Co-authored-by
+Aborting commit due to empty commit message.

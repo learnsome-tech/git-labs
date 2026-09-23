@@ -1,0 +1,13 @@
+$ git switch -q -c retry-window
+$ printf 'retries = 3\n' >> config.ini
+$ git commit -q -am 'Retry three times before giving up'
+$ git switch -q main
+$ git merge --no-ff --log retry-window
+Merge made by the 'ort' strategy.
+ config.ini | 1 +
+ 1 file changed, 1 insertion(+)
+$ git log -1 --format=%B
+Merge branch 'retry-window'
+
+* retry-window:
+  Retry three times before giving up

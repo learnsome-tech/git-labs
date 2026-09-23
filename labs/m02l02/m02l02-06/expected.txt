@@ -1,0 +1,11 @@
+$ git commit -F message.txt
+[main 1ab8034] Pin the CSV parser to the previous release
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+$ printf 'retries = 3\n' >> config.ini
+$ git commit -a -F -
+[main d0baead] Retry three times before giving up
+ 1 file changed, 1 insertion(+)
+$ git log --oneline
+d0baead Retry three times before giving up
+1ab8034 Pin the CSV parser to the previous release
+8491dc5 Add the parser pin

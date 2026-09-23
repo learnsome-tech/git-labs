@@ -1,0 +1,8 @@
+$ git config --global init.defaultBranch main
+$ git config --global pull.rebase false
+$ git config --global core.editor 'code --wait'
+$ git config --global alias.lg 'log --oneline --graph'
+$ git config --get core.editor
+code --wait
+$ git config --get-regexp '^alias'
+alias.lg log --oneline --graph

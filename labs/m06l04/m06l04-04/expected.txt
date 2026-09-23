@@ -1,0 +1,6 @@
+$ git worktree add ../hotfix fix-bug
+Preparing worktree (checking out 'fix-bug')
+HEAD is now at a1b2c3d Initial
+$ git worktree list
+/path/to/repo       a1b2c3d [main]
+/path/to/hotfix     a1b2c3d [fix-bug]

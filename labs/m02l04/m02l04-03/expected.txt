@@ -1,0 +1,14 @@
+$ git log --oneline --graph --all
+* 31674e8 test: cover the parser
+* 2997b23 refactor: rename the parse helper
+* 9b5643d fix: handle an empty line in the parser
+* bf2d618 feat: add the command line entry point
+* c96fe7e feat: add the parser
+* e3aabc4 docs: add the readme
+$ git log --oneline -2
+31674e8 test: cover the parser
+2997b23 refactor: rename the parse helper
+$ git log --pretty=format:'%h %ad %s' --date=short -3
+31674e8 2024-03-06 test: cover the parser
+2997b23 2024-03-06 refactor: rename the parse helper
+9b5643d 2024-03-05 fix: handle an empty line in the parser

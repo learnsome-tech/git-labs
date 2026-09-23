@@ -1,0 +1,6 @@
+$ git rev-parse --short feature
+b8af5d2
+$ git rebase main
+Rebasing (1/1)Successfully rebased and updated refs/heads/feature.
+$ git rev-parse --short feature
+836ae39

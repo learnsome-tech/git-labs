@@ -1,0 +1,12 @@
+$ cp -r cookbook cookbook-copy
+$ cd cookbook-copy
+$ git log --oneline
+bd21fbc Add the sourdough recipe
+1a079fb Add the onion soup recipe
+$ cd ../cookbook
+$ rm -rf .git
+$ ls
+bread.md
+soup.md
+$ git status
+fatal: not a git repository (or any of the parent directories): .git

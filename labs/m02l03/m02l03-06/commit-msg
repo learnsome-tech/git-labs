@@ -1,0 +1,11 @@
+#!/bin/sh
+# git passes the path of the message file as the first argument
+types='feat|fix|docs|style|refactor|perf|test|build|ci|chore|revert'
+subject=$(head -n 1 "$1")
+if echo "$subject" | grep -Eq "^($types)(\([a-z0-9-]+\))?!?: .+"; then
+  exit 0
+fi
+echo "commit-msg: subject is not a conventional commit" >&2
+echo "  want: type(optional scope): description" >&2
+echo "  got:  $subject" >&2
+exit 1

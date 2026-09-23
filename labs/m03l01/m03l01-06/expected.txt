@@ -1,0 +1,7 @@
+$ git switch feature
+Switched to branch 'feature'
+$ printf 'a feature line\n' >> notes.txt
+$ git commit -q -am 'Start the feature'
+$ git rev-parse main feature
+87a8ebfdf95ba7a0bdcecb51b9e61427e2e59914
+78a12d096135d25b2784eeabc88d7a237ca2c064

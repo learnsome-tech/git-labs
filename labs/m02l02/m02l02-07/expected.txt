@@ -1,0 +1,13 @@
+$ git log -1
+commit 2bf677531ed0f9aa39006ff5e60bb57a443b191b
+Author: Ada Lovelace <ada@example.com>
+Date:   Mon Mar 4 11:00:00 2024 +0000
+
+    Retry three times before giving up
+    
+    One retry was not enough on mobile networks, and five made
+    the wait worse than the failure. A flaky network test settled
+    the argument at three.
+$ git diff --stat HEAD~1 HEAD
+ config.ini | 1 +
+ 1 file changed, 1 insertion(+)

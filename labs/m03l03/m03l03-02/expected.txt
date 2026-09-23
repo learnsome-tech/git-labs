@@ -1,0 +1,7 @@
+$ git branch -v
+  feature 23ab440 Add a third line
+* main    5a9bfe1 Add notes
+$ git log --oneline --graph --all
+* 23ab440 Add a third line
+* 6fa2cab Add a second line
+* 5a9bfe1 Add notes

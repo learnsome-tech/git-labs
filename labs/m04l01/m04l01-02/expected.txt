@@ -1,0 +1,12 @@
+$ git init --bare ../server.git
+Initialized empty Git repository in /tmp/server.git/
+$ ls ../server.git
+HEAD
+config
+description
+hooks
+info
+objects
+refs
+$ git -C ../server.git config core.bare
+true

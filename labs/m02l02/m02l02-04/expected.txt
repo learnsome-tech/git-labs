@@ -1,0 +1,11 @@
+$ git log --oneline
+fb1a46a Change the default request timeout because mobile networks are slow
+2c1c1d1 Add the request timeout
+$ git log --format='%<(50,trunc)%s'
+Change the default request timeout because mobil..
+Add the request timeout                           
+$ git shortlog -w50 HEAD
+Ada Lovelace (2):
+      Add the request timeout
+      Change the default request timeout because
+         mobile networks are slow

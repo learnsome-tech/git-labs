@@ -1,0 +1,11 @@
+$ git rm --cached service.env
+rm 'service.env'
+$ git status --short
+D  service.env
+$ git commit -m 'Stop tracking the service token'
+[main d2da284] Stop tracking the service token
+ 1 file changed, 1 deletion(-)
+ delete mode 100644 service.env
+$ git status --short
+$ ls service.env
+service.env

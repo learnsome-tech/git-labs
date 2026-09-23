@@ -1,0 +1,9 @@
+$ git status --short
+M  prices.md
+ M recipes.md
+?? shopping.md
+$ git status --short --branch
+## main
+M  prices.md
+ M recipes.md
+?? shopping.md

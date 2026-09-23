@@ -1,0 +1,14 @@
+Pin the CSV parser to the previous release
+
+The vendor release reorders duplicate headers, and our importer
+reads those columns by position, so imports shift by one column.
+
+Upgrading properly means rewriting the importer, which is a week
+we do not have this sprint. This pin is a holding action, not a
+preference.
+
+Rejected: patching the vendor file in place, because the next
+install would quietly undo it.
+
+Refs: #214
+Co-authored-by: Grace Hopper <grace@example.com>

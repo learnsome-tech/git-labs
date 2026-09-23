@@ -1,0 +1,13 @@
+$ git add --patch recipes.md
+diff --git a/recipes.md b/recipes.md
+index d90bb63..d1003f7 100644
+--- a/recipes.md
++++ b/recipes.md
+@@ -1,4 +1,5 @@
+ Pancakes
++Serves two.
+ Mix flour and milk.
+ Fry in butter.
+(1/2) Stage this hunk [y,n,q,a,d,k,K,j,J,g,/,e,p,P,?]?
+$ git status --short
+ M recipes.md

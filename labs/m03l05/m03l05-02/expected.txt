@@ -1,0 +1,6 @@
+$ git status --short
+ M notes.txt
+$ git restore notes.txt
+$ git status --short
+$ cat notes.txt
+the good line

@@ -1,0 +1,11 @@
+$ git -C merged log --oneline --graph
+*   a1f6e8f Merge branch 'feature'
+|\  
+| * d28fbf7 Add the feature file
+* | 693a697 Add the main file
+|/  
+* 5a9bfe1 Add notes
+$ git -C rebased log --oneline --graph
+* be0e159 Add the feature file
+* 693a697 Add the main file
+* 5a9bfe1 Add notes

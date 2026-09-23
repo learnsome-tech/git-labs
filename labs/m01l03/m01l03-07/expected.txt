@@ -1,0 +1,9 @@
+$ git init
+Reinitialized existing Git repository in /tmp/cookbook/.git/
+$ mkdir notes
+$ cd notes
+$ git init
+Initialized empty Git repository in /tmp/cookbook/notes/.git/
+$ cd ..
+$ git status --short
+?? notes/

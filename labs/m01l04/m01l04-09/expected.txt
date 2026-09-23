@@ -1,0 +1,8 @@
+$ git -C one rev-parse 'HEAD^{tree}'
+2e81171448eb9f2ee3821e3d447aa6b2fe3ddba1
+$ git -C two rev-parse 'HEAD^{tree}'
+2e81171448eb9f2ee3821e3d447aa6b2fe3ddba1
+$ git -C one rev-parse HEAD
+3c07fc552ba7b3cc0727d78c095e92e96312cedf
+$ git -C two rev-parse HEAD
+d431bcb2c44387394798dd2d770d487207d5a2e7

@@ -1,0 +1,8 @@
+$ git branch -m feature notes-tidy
+$ git branch
+* main
+  notes-tidy
+$ git branch -d notes-tidy
+error: the branch 'notes-tidy' is not fully merged
+$ git branch -D notes-tidy
+Deleted branch notes-tidy (was b005bc5).

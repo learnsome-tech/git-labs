@@ -1,0 +1,7 @@
+$ git cat-file -p HEAD
+tree 5af90d6eca5bea5adadfff440e5adbb9eab47931
+parent e06f0668e9542ecc8ff201bda598c587d908b02f
+author Ada Lovelace <ada@example.com> 1709550000 +0000
+committer Ada Lovelace <ada@example.com> 1709550000 +0000
+
+Add a second line

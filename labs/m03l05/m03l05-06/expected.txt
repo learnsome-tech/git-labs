@@ -1,0 +1,7 @@
+$ git reset HEAD~1
+Unstaged changes after reset:
+M	notes.txt
+$ git log --oneline
+5a9bfe1 Add notes
+$ git status --short
+ M notes.txt

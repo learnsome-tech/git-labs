@@ -1,0 +1,13 @@
+$ git diff --stat HEAD~4 HEAD~2
+ cli.py    | 3 +++
+ parser.py | 2 ++
+ 2 files changed, 5 insertions(+)
+$ git diff --name-status HEAD~4..HEAD~2
+A	cli.py
+M	parser.py
+$ git diff --name-status HEAD~4...HEAD~2
+A	cli.py
+M	parser.py
+$ git diff --stat
+ README.md | 1 +
+ 1 file changed, 1 insertion(+)

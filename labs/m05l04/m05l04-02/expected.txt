@@ -1,0 +1,10 @@
+$ cat shopping.txt
+<<<<<<< HEAD
+apples and pears
+=======
+apples and oranges
+>>>>>>> main
+$ echo 'apples, pears, and oranges' > shopping.txt
+$ git add shopping.txt
+$ git commit -m 'Merge main, keeping both fruits'
+[other 7d8e9f0] Merge main, keeping both fruits

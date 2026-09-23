@@ -1,0 +1,4 @@
+$ gh pr create --title "Add a new button" --body "Closes #42"
+Creating pull request for feature/42-new-button into main in org/repo
+
+https://github.com/org/repo/pull/43

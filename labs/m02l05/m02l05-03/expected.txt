@@ -1,0 +1,10 @@
+$ git add service.env
+$ git commit -m 'Add the service token'
+[main 132deeb] Add the service token
+ 1 file changed, 1 insertion(+)
+ create mode 100644 service.env
+$ printf 'service.env\n' > .gitignore
+$ printf 'API_TOKEN=hunter3\n' > service.env
+$ git status --short
+ M service.env
+?? .gitignore

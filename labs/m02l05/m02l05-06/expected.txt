@@ -1,0 +1,8 @@
+$ git check-ignore -v debug.log
+.gitignore:1:*.log	debug.log
+$ git check-ignore -v build/out.o
+.gitignore:2:build/	build/out.o
+$ git check-ignore -v app.yaml
+$ git status --short --ignored
+!! build/
+!! debug.log

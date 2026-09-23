@@ -1,0 +1,7 @@
+$ git reset --hard HEAD~1
+HEAD is now at 5a9bfe1 Add notes
+$ git log --oneline
+5a9bfe1 Add notes
+$ git status --short
+$ cat notes.txt
+one

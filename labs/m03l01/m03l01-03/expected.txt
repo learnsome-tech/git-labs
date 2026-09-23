@@ -1,0 +1,8 @@
+$ cat .git/refs/heads/main
+87a8ebfdf95ba7a0bdcecb51b9e61427e2e59914
+$ printf 'third line\n' >> notes.txt
+$ git commit -am 'Add a third line'
+[main 107f711] Add a third line
+ 1 file changed, 1 insertion(+)
+$ cat .git/refs/heads/main
+107f711d23053180bedc44284e9433a7b9172e0d

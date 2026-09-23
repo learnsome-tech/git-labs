@@ -1,0 +1,8 @@
+$ cat .git/HEAD
+ref: refs/heads/main
+$ git switch feature
+Switched to branch 'feature'
+$ cat .git/HEAD
+ref: refs/heads/feature
+$ git switch main
+Switched to branch 'main'

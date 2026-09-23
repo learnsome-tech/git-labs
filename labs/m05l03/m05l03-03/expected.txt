@@ -1,0 +1,4 @@
+$ git merge main
+Auto-merging shopping.txt
+CONFLICT (content): Merge conflict in shopping.txt
+Automatic merge failed; fix conflicts and then commit the result.

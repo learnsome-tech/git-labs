@@ -1,0 +1,4 @@
+$ chmod +x .git/hooks/commit-msg && git commit -m 'wip logging'
+commit-msg: subject is not a conventional commit
+  want: type(optional scope): description
+  got:  wip logging

@@ -1,0 +1,14 @@
+$ printf 'an experiment\n' >> notes.txt
+$ git commit -q -am 'Try something out'
+$ git switch main
+Warning: you are leaving 1 commit behind, not connected to
+any of your branches:
+
+  ac70779 Try something out
+
+If you want to keep it by creating a new branch, this may be a good time
+to do so with:
+
+ git branch <new-branch-name> ac70779
+
+Switched to branch 'main'

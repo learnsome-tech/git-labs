@@ -1,0 +1,7 @@
+$ git -C work config user.email ada@company.example.com
+$ git -C work config user.email
+ada@company.example.com
+$ git -C personal config user.email
+ada@example.com
+$ git -C personal config --show-scope user.email
+global	ada@example.com

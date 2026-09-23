@@ -1,0 +1,6 @@
+$ printf 'Revenue is up.\n' | git hash-object --stdin
+e2d05fa0dbbdbe41fcd15a91cdcd026e30cdb5eb
+$ printf 'Revenue is up.\n' | git hash-object --stdin
+e2d05fa0dbbdbe41fcd15a91cdcd026e30cdb5eb
+$ printf 'Revenue is Up.\n' | git hash-object --stdin
+d185a2e8a9d84ce6c6eb7057a3c4e7b6d61cd350

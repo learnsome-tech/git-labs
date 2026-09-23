@@ -1,0 +1,7 @@
+# generated files and local overrides, for everybody
+notes.txt
+*.log
+build/
+/config.local
+docs/**/scratch.md
+!docs/keep/scratch.md

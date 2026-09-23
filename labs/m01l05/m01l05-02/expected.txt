@@ -1,0 +1,8 @@
+$ ls
+plan.txt
+$ ls .git/index
+.git/index
+$ git cat-file --batch-check --batch-all-objects
+9e5935a49d7bd3c4d2f4be5393263b4f130ddd1c tree 36
+9ea0ca47d8f2eee52dcc97adbbbd4be81350a7b0 commit 173
+f1017fceccdcd29933ea93fe20007d55cbc95317 blob 15

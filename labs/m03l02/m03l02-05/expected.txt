@@ -1,0 +1,8 @@
+$ git log --oneline
+23ab440 Add a third line
+6fa2cab Add a second line
+5a9bfe1 Add notes
+$ git rev-parse --short HEAD~1
+6fa2cab
+$ git show -s --oneline HEAD~2
+5a9bfe1 Add notes

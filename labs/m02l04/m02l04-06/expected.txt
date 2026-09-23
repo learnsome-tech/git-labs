@@ -1,0 +1,12 @@
+$ git log --oneline --patch -1 -- parser.py
+2997b23 refactor: rename the parse helper
+diff --git a/parser.py b/parser.py
+index 02aa4ca..0f07c7d 100644
+--- a/parser.py
++++ b/parser.py
+@@ -1,4 +1,4 @@
+-def split_line(line):
++def parse_line(line):
+     if not line:
+         return []
+     return line.split(":", 1)

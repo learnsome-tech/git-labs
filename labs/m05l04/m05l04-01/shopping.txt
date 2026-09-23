@@ -1,0 +1,5 @@
+<<<<<<< HEAD
+apples and pears
+=======
+apples and oranges
+>>>>>>> main

@@ -1,0 +1,11 @@
+$ git rebase main
+Auto-merging notes.txt
+CONFLICT (content): Merge conflict in notes.txt
+Rebasing (1/1)error: could not apply f59446d... Reword notes
+Could not apply f59446d... # Reword notes
+$ git rebase --abort
+$ git log --oneline --graph --all
+* ae5f40c Reword the notes on main
+| * f59446d Reword notes
+|/  
+* e06f066 Add notes

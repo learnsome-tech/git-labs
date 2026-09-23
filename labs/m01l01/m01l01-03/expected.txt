@@ -1,0 +1,10 @@
+$ diff report-final.md report-final-v2.md
+1c1
+< Revenue is up.
+---
+> Revenue is up four percent.
+$ diff report-final-v2.md report-really-final.md
+2c2
+< Costs are flat.
+---
+> Costs are down two percent.

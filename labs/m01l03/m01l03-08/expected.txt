@@ -1,0 +1,7 @@
+$ cd recipes/sauces
+$ git status --short
+?? bearnaise.md
+$ git rev-parse --show-toplevel
+/tmp/cookbook
+$ git rev-parse --show-prefix
+recipes/sauces/
