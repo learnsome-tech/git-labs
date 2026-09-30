@@ -12,10 +12,11 @@
   ],
   "stdin": null,
   "expected": "expected.txt",
-  "grading": "lines",
+  "grading": "git",
   "requires": [
     "bash",
     "git"
   ],
+  "mergeStderr": true,
   "note": null
 }

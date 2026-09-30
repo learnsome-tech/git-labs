@@ -1,5 +1,14 @@
 $ git ls-remote origin
-0000000000000000000000000000000000000000	HEAD
-0000000000000000000000000000000000000000	refs/heads/main
+4de21a2ff0c4a15f0094ef49cebafa38647925e9	HEAD
+4de21a2ff0c4a15f0094ef49cebafa38647925e9	refs/heads/main
 $ git remote show origin
 * remote origin
+  Fetch URL: ../server.git
+  Push  URL: ../server.git
+  HEAD branch: main
+  Remote branch:
+    main tracked
+  Local branch configured for 'git pull':
+    main merges with remote main
+  Local ref configured for 'git push':
+    main pushes to main (up to date)

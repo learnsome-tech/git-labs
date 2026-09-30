@@ -1,7 +1,8 @@
 $ git init --bare ../server.git
-Initialized empty Git repository in /tmp/server.git/
+Initialized empty Git repository in /tmp/gitcourse-GHM8X3/work/server.git/
 $ ls ../server.git
 HEAD
+branches
 config
 description
 hooks

@@ -4,5 +4,5 @@ Your branch is up to date with 'origin/main'.
 
 nothing to commit, working tree clean
 $ git fetch
-From ../remote.git
-   a1b2c3d..e4f5g6h  main       -> origin/main
+From /tmp/gitcourse-27CZ1l/work/../remote
+   1c3ad0f..9c04f68  main       -> origin/main

@@ -3,6 +3,7 @@ $ git branch
 * main
   notes-tidy
 $ git branch -d notes-tidy
-error: the branch 'notes-tidy' is not fully merged
+error: The branch 'notes-tidy' is not fully merged.
+If you are sure you want to delete it, run 'git branch -D notes-tidy'.
 $ git branch -D notes-tidy
 Deleted branch notes-tidy (was b005bc5).

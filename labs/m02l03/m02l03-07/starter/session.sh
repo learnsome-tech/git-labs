@@ -67,7 +67,7 @@ chmod +x .git/hooks/commit-msg
 set +e
 
 # --- what the video shows ---
-echo "$ git commit -m 'wip logging' 2>&1; echo \"exit code $?\""
+echo "$ git commit -m 'wip logging' 2>&1; echo \"exit code \$?\""
 git commit -m 'wip logging' 2>&1; echo "exit code $?"
 echo "$ git commit -m 'feat(log): record every failed probe'"
 git commit -m 'feat(log): record every failed probe'

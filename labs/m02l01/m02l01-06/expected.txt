@@ -6,8 +6,9 @@ index d90bb63..d1003f7 100644
 @@ -1,4 +1,5 @@
  Pancakes
 +Serves two.
+ 
  Mix flour and milk.
  Fry in butter.
-(1/2) Stage this hunk [y,n,q,a,d,k,K,j,J,g,/,e,p,P,?]?
+(1/2) Stage this hunk [y,n,q,a,d,j,J,g,/,e,?]? 
 $ git status --short
  M recipes.md

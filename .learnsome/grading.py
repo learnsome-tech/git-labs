@@ -297,6 +297,110 @@ def dotnet_normalize(text):
             out.append(line)
     return out
 
+def _rstrip_ws(line):
+    """JavaScript's line.replace(/\\s+$/, '')."""
+    return line.rstrip(JS_SPACE)
+
+
+def bash_normalize(text):
+    """bash-course: every line compared, inner blank lines included; trailing whitespace and the blank lines
+    before the first and after the last line of output set aside."""
+    lines = [_rstrip_ws(l) for l in _newlines(text).split('\n')]
+    first, last = 0, len(lines)
+    while first < last and lines[first] == '':
+        first += 1
+    while last > first and lines[last - 1] == '':
+        last -= 1
+    return lines[first:last]
+
+
+_NQ = "[^" + re.escape(JS_SPACE) + "'\")]"
+_GIT_RULES = [(re.compile(p, re.ASCII), r) for p, r in (
+    (r'/(?:private/)?(?:var|tmp)/' + _NQ + r'*gitcourse-[A-Za-z0-9]+' + _NQ + '*', '<dir>'),
+    (r'/(?:private/)?(?:var|tmp)/[A-Za-z0-9._/-]+', '<dir>'),
+)]
+_GIT_DATE_LINE = re.compile(r'^((?:Author|Commit)?Date:' + _S + '+)' + _DOT + r'*\Z')
+_GIT_REST = [(re.compile(p, re.ASCII), r) for p, r in (
+    (r'\b[A-Z][a-z]{2} [A-Z][a-z]{2} [0-9]{1,2} [0-9][0-9]:[0-9][0-9]:[0-9][0-9] [0-9]{4} [-+][0-9]{4}\b', '<date>'),
+    (r'\b[0-9]{4}-[0-9][0-9]-[0-9][0-9][ T][0-9][0-9]:[0-9][0-9](:[0-9][0-9])?( [-+][0-9]{4})?\b', '<date>'),
+    (r'\b[0-9]+ (?:seconds?|minutes?|hours?|days?|weeks?|months?|years?) ago\b', '<date>'),
+    (r'\b[0-9a-f]{7,40}\b', '<id>'),
+    (r'\b[0-9]+(\.[0-9]+)? [KMG]?i?B(/s)?\b', '<size>'),
+)]
+_GIT_VERSION = re.compile(r'^git version ' + _DOT + r'*\Z')
+_GIT_COUNT = re.compile('^' + _S + r'+([0-9]+)(?=' + _S + ')')
+
+
+def git_normalize(text):
+    """git-course: object ids, dates, temporary directories, sizes and the git version masked, `hint:` lines
+    and blank lines dropped, `wc` count padding removed."""
+    out = []
+    for raw in _newlines(text).split('\n'):
+        line = _rstrip_ws(ANSI.sub('', raw))
+        if line.startswith('hint:'):
+            continue
+        for pattern, replacement in _GIT_RULES:
+            line = pattern.sub(lambda _m, r=replacement: r, line)
+        line = _GIT_DATE_LINE.sub(lambda m: m.group(1) + '<date>', line, count=1)
+        for pattern, replacement in _GIT_REST:
+            line = pattern.sub(lambda _m, r=replacement: r, line)
+        line = _GIT_VERSION.sub('git version <version>', line, count=1)
+        line = _GIT_COUNT.sub(lambda m: m.group(1), line, count=1)
+        if line != '':
+            out.append(line)
+    return out
+
+
+_PYTEST_TALLY = re.compile(
+    r'^=*' + _S + r'*((?:[0-9]+(?:/[0-9]+)? (?:passed|failed|errors?|skipped|xfailed|xpassed|deselected|warnings?|rerun|tests? collected)'
+    r'(?: \([0-9]+ deselected\))?(?:, )?)+|no tests ran)(?: in (?:[0-9.]+|TIME)s(?: \([0-9]+:[0-9][0-9]:[0-9][0-9]\))?)?'
+    + _S + r'*=*\Z')
+_PYTEST_ROW = re.compile('^(' + _NS + '+::' + _NS + '+?)' + _S + r'+(PASSED|FAILED|ERROR|SKIPPED|XFAIL|XPASS)\b', re.ASCII)
+_PYTEST_SUMMARY_ROW = re.compile(r'^(FAILED|ERROR|XFAIL|XPASS|SKIPPED)' + _S + '+(' + _NS + '+::' + _NS + '+|' + _NS + r'+\.py)(?:' + _S + r'|\Z)')
+_PYTEST_COLLECTED = re.compile(r'^(?:<[^>]+>' + _S + '*)*(' + _NS + r'+\.py::' + _NS + r'+)\Z')
+
+
+def _pytest_outcome(text):
+    tests = []
+    seen = set()
+    tally = None
+
+    def add(item):
+        if item not in seen:
+            seen.add(item)
+            tests.append(item)
+
+    for raw in _newlines(text).split('\n'):
+        line = _trim(ANSI.sub('', raw))
+        row = _PYTEST_ROW.search(line)
+        if row:
+            add(f'{row.group(1)} {row.group(2)}')
+            continue
+        summary = _PYTEST_SUMMARY_ROW.search(line)
+        if summary:
+            add(f'{summary.group(2)} {summary.group(1)}')
+            continue
+        collected = _PYTEST_COLLECTED.search(line)
+        if collected:
+            add(f'{collected.group(1)} COLLECTED')
+            continue
+        m = _PYTEST_TALLY.search(line)
+        if m:
+            tally = ', '.join(p for p in m.group(1).split(', ') if not re.search(r'warnings?\Z', p))
+    if tally is None:
+        return None
+    # JavaScript's default sort: by UTF-16 code units.
+    return sorted(tests, key=lambda s: s.encode('utf-16-be')) + [f'tally: {tally}']
+
+
+def _pytest_grade(stdout, stderr, expected_text):
+    expected = _pytest_outcome(expected_text)
+    actual = _pytest_outcome(stdout + stderr)
+    if expected is None:
+        return {'passed': False, 'diff': line_diff(stdout + stderr, expected_text)}
+    diff = _diff(actual or [], expected)
+    return {'passed': len(diff) == 0, 'diff': diff}
+
 
 def _normalized_grade(normalize, stdout, stderr, expected_text):
     diff = _diff(normalize(stdout + stderr), normalize(expected_text))
@@ -311,6 +415,12 @@ def grade_output(stdout, stderr, expected_text, grading='lines'):
         return _normalized_grade(terraform_normalize, stdout, stderr, expected_text)
     if grading == 'dotnet':
         return _normalized_grade(dotnet_normalize, stdout, stderr, expected_text)
+    if grading == 'git':
+        return _normalized_grade(git_normalize, stdout, stderr, expected_text)
+    if grading == 'bash':
+        return _normalized_grade(bash_normalize, stdout, stderr, expected_text)
+    if grading == 'pytest':
+        return _pytest_grade(stdout, stderr, expected_text)
     stdout_diff = line_diff(stdout, expected_text)
     if not stdout_diff:
         return {'passed': True, 'diff': []}

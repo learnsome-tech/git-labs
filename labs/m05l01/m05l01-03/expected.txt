@@ -1,8 +1,8 @@
 $ git checkout -b feature/42-new-button
 Switched to a new branch 'feature/42-new-button'
 $ git commit --allow-empty -m 'Add a new button'
-[feature/42-new-button 1a2b3c4] Add a new button
+[feature/42-new-button b39c41e] Add a new button
 $ git push -u origin feature/42-new-button
-branch 'feature/42-new-button' set up to track 'origin/feature/42-new-button'.
 To ../remote.git
  * [new branch]      feature/42-new-button -> feature/42-new-button
+Branch 'feature/42-new-button' set up to track remote branch 'feature/42-new-button' from 'origin'.

@@ -1,5 +1,6 @@
 $ ls .git
 HEAD
+branches
 config
 description
 hooks

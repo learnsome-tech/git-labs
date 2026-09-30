@@ -1,5 +1,5 @@
 $ git commit --allow-empty -m 'Second'
-[main a1b2c3d] Second
+[main 684ded0] Second
 $ git status
 On branch main
 Your branch is ahead of 'origin/main' by 1 commit.
@@ -7,5 +7,5 @@ Your branch is ahead of 'origin/main' by 1 commit.
 
 nothing to commit, working tree clean
 $ git push
-To ../remote.git
-   a1b2c3d..e4f5g6h  main -> main
+To /tmp/gitcourse-wpjPE8/work/../remote.git
+   1c3ad0f..684ded0  main -> main

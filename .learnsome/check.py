@@ -12,6 +12,7 @@ import os
 import re
 import selectors
 import shutil
+import shlex
 import signal
 import subprocess
 import sys
@@ -162,7 +163,8 @@ def command_for(lab, home, tmp):
         'node': ['node', f],
         'node-ts': [*NODE_TS, f],
         'tsx': ['tsx', f],
-        'recorded': ['bash', 'run.sh'],
+        # The command line the course recorded beside the listing: run.sh, else command.txt.
+        'recorded': ['bash', 'run.sh' if os.path.isfile(os.path.join(home, 'run.sh')) else 'command.txt'],
         'hadolint': ['hadolint', '--no-color', '--failure-threshold', 'error', f],
         'actionlint': ['actionlint', '-no-color', '-shellcheck=', '-pyflakes=', f],
         'yamllint': ['yamllint', '-d', 'relaxed', '-f', 'standard', f],
@@ -177,6 +179,8 @@ def command_for(lab, home, tmp):
         return ['ansible-playbook', '--syntax-check', '-i', 'localhost,', '-c', 'local', f], False, dict(ANSIBLE_ENV)
     if r == 'terraform-validate':
         return ['sh', '-c', TERRAFORM_VALIDATE], False, terraform_env()
+    if r == 'pytest':
+        return ['python3', '-m', 'pytest', *pytest_args(home, f)], False, {'COLUMNS': '80'}
     if r == 'csharp':
         # The assembly build_csharp() builds (it runs first), run as the site runs it.
         return ['dotnet', 'exec', csharp_assembly(home)], False, {
@@ -199,7 +203,8 @@ def command_for(lab, home, tmp):
 
 # Variables passed through from your shell, beyond the sandbox's own (toolchains that find themselves by them).
 PASS_THROUGH = ('JAVA_HOME', 'GOROOT', 'SSL_CERT_FILE', 'SYSTEMROOT', 'DOTNET_ROOT')
-DOTNET_ENV = {'DOTNET_CLI_TELEMETRY_OPTOUT': '1', 'DOTNET_NOLOGO': '1', 'DOTNET_SKIP_FIRST_TIME_EXPERIENCE': '1'}
+DOTNET_ENV = {'DOTNET_CLI_TELEMETRY_OPTOUT': '1', 'DOTNET_NOLOGO': '1', 'DOTNET_SKIP_FIRST_TIME_EXPERIENCE': '1',
+              'DOTNET_CLI_WORKLOAD_UPDATE_NOTIFY_DISABLE': '1'}
 # Where the site's output shows a C# program's own assembly (run_lab.py CSHARP_OUT_SHOWN).
 CSHARP_OUT_SHOWN = '/work/bin/Debug/net10.0'
 
@@ -227,6 +232,12 @@ def build_csharp(home, env):
     except subprocess.TimeoutExpired:
         return False, 'dotnet build did not finish in 5 minutes\n'
     text = (proc.stdout + proc.stderr).decode('utf-8', 'replace')
+    # What the site shows before the program's output is the compiler's (csc's) diagnostics only: MSBuild's own
+    # notices (workload checks, restore) are left out, and so is the project suffix MSBuild adds to each line.
+    lines = [re.sub(r' \[[^\]]*\.csproj\]$', '', l) for l in text.splitlines() if re.search(r': (?:error|warning) [A-Z]+[0-9]+:', l)]
+    if proc.returncode != 0 and not lines:
+        lines = text.splitlines()
+    text = ''.join(f'{l}\n' for l in dict.fromkeys(lines))
     # Names as the site shows them: the sources in the program's directory.
     text = re.sub(rf'(?<![\w./-]){re.escape(build)}(?![\w.-])', home, text)
     return proc.returncode == 0, text
@@ -251,14 +262,26 @@ class Capped:
         return b''.join(self.chunks).decode('utf-8', 'replace')
 
 
-def run_capped(argv, cwd, env, stdin_bytes):
+def pytest_args(home, file_name):
+    """The arguments of the lab's recorded pytest command (command.txt), else just the test file."""
+    try:
+        with open(os.path.join(home, 'command.txt'), encoding='utf-8') as f:
+            words = shlex.split(f.read())
+    except (OSError, ValueError):
+        words = []
+    return words[1:] if words[:1] == ['pytest'] and len(words) > 1 else [file_name]
+
+
+def run_capped(argv, cwd, env, stdin_bytes, merge=False):
+    """`merge`: stderr goes to stdout (2>&1), in the order it was written, as for labs recorded that way."""
     started = time.monotonic()
     with tempfile.TemporaryFile() as stdin_file:
         stdin_file.write(stdin_bytes)
         stdin_file.seek(0)
         try:
             proc = subprocess.Popen(argv, cwd=cwd, env=env, stdin=stdin_file, stdout=subprocess.PIPE,
-                                    stderr=subprocess.PIPE, start_new_session=True, close_fds=True)
+                                    stderr=subprocess.STDOUT if merge else subprocess.PIPE,
+                                    start_new_session=True, close_fds=True)
         except OSError as err:
             return {'exitCode': 127, 'stdout': '', 'stderr': f'{argv[0]}: {err}\n', 'durationMs': 0,
                     'timedOut': False, 'truncated': False}
@@ -269,7 +292,9 @@ def run_capped(argv, cwd, env, stdin_bytes):
         except OSError:
             pass
 
-    outputs = {proc.stdout: Capped(), proc.stderr: Capped()}
+    outputs = {proc.stdout: Capped()}
+    if proc.stderr:
+        outputs[proc.stderr] = Capped()
     sel = selectors.DefaultSelector()
     for pipe in outputs:
         os.set_blocking(pipe.fileno(), False)
@@ -318,7 +343,8 @@ def run_capped(argv, cwd, env, stdin_bytes):
             pipe.close()
     ends = [t for t in (stopped_at, ended_at, time.monotonic()) if t is not None]
     code = proc.returncode
-    out, err = outputs[proc.stdout], outputs[proc.stderr]
+    out = outputs[proc.stdout]
+    err = outputs[proc.stderr] if proc.stderr else Capped()
     return {
         'exitCode': 137 if code is None else 128 - code if code < 0 else code,
         'stdout': out.text(),
@@ -332,7 +358,7 @@ def run_capped(argv, cwd, env, stdin_bytes):
 def execute(lab):
     """Copies the lab's files into a scratch directory, runs it and returns run_lab.py's result shape."""
     base = os.path.realpath(tempfile.mkdtemp(prefix='learnsome-lab-'))
-    home = os.path.join(base, 'home')
+    home = os.path.join(base, 'work')  # the program's directory, named as on the site
     tmp = os.path.join(base, 'tmp')
     os.mkdir(home)
     os.mkdir(tmp)
@@ -371,7 +397,7 @@ def execute(lab):
             if not ok:
                 result = {'exitCode': 1, 'stdout': prefix, 'stderr': '', 'durationMs': 0, 'timedOut': False, 'truncated': False}
         if lab['runner'] != 'csharp' or ok:
-            result = run_capped(argv, home, env, stdin_bytes)
+            result = run_capped(argv, home, env, stdin_bytes, merge=lab.get('mergeStderr') is True)
             result['stdout'] = prefix + result['stdout']
         # Paths as the site shows them: the program's directory as /work (relative before a file name), its
         # scratch space as /tmp, and a C# program's own assembly directory as the SDK's output directory.
@@ -526,7 +552,7 @@ def lint_structure(problems):
 
 
 LANGUAGE_FILES = {
-    'python': ('.py',), 'bash': ('.sh',), 'recorded': ('.sh',), 'go': ('.go',), 'java': ('.java',),
+    'python': ('.py',), 'pytest': ('.py',), 'bash': ('.sh',), 'recorded': ('.sh',), 'go': ('.go',), 'java': ('.java',),
     'node': ('.js', '.mjs', '.cjs'),
 }
 
@@ -569,7 +595,7 @@ def lint_syntax(problems, missing):
             if ext == '.java':
                 java_files.append(path)
                 continue
-            if lab['runner'] == 'python' and ext == '.py':
+            if lab['runner'] in ('python', 'pytest') and ext == '.py':
                 import ast
                 try:
                     with open(path, 'rb') as f:

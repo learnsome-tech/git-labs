@@ -33,10 +33,14 @@ In the lesson: Sometimes a replayed change does not apply, because both sides ch
 
 ```text
 $ git rebase main
-Auto-merging notes.txt
+Rebasing (1/1)Auto-merging notes.txt
 CONFLICT (content): Merge conflict in notes.txt
-Rebasing (1/1)error: could not apply f59446d... Reword notes
-Could not apply f59446d... # Reword notes
+error: could not apply f59446d... Reword notes
+hint: Resolve all conflicts manually, mark them as resolved with
+hint: "git add/rm <conflicted_files>", then run "git rebase --continue".
+hint: You can instead skip this commit: run "git rebase --skip".
+hint: To abort and get back to the state before "git rebase", run "git rebase --abort".
+Could not apply f59446d... Reword notes
 $ git rebase --abort
 $ git log --oneline --graph --all
 * ae5f40c Reword the notes on main
@@ -49,7 +53,7 @@ $ git log --oneline --graph --all
 
 `./check m03l04-08` copies `starter/` into a scratch directory and runs `bash session.sh` there, the way the site's lab sandbox does: that directory is the working directory and `HOME`, `LANG=C.UTF-8`, `TZ=UTC`, a limit of 10 seconds and 256 KiB of output per stream.
 
-It passes when the output matches `expected.txt` by the site's rules, within the limits. Standard output is compared line by line; spaces at the end of a line and blank lines at the end do not count. If that differs, standard output followed by standard error is compared with Python traceback frames and blank lines set aside, so a lesson that shows an error passes when your program prints the same error. A pass here is a pass on the site.
+It passes when the output matches `expected.txt` by the site's rules, within the limits. Standard output and standard error are compared after what depends on the machine or the git release is masked: object ids, dates, temporary directories, transfer sizes, the git version, `hint:` advice lines, the padding of counts and blank lines. A pass here is a pass on the site.
 
 ---
 

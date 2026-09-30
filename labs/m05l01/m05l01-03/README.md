@@ -35,18 +35,18 @@ In the lesson: To start a new piece of work, you create a branch following your 
 $ git checkout -b feature/42-new-button
 Switched to a new branch 'feature/42-new-button'
 $ git commit --allow-empty -m 'Add a new button'
-[feature/42-new-button 1a2b3c4] Add a new button
+[feature/42-new-button b39c41e] Add a new button
 $ git push -u origin feature/42-new-button
-branch 'feature/42-new-button' set up to track 'origin/feature/42-new-button'.
 To ../remote.git
  * [new branch]      feature/42-new-button -> feature/42-new-button
+Branch 'feature/42-new-button' set up to track remote branch 'feature/42-new-button' from 'origin'.
 ```
 
 ## How to check
 
 `./check m05l01-03` copies `starter/` into a scratch directory and runs `bash session.sh` there, the way the site's lab sandbox does: that directory is the working directory and `HOME`, `LANG=C.UTF-8`, `TZ=UTC`, a limit of 10 seconds and 256 KiB of output per stream.
 
-It passes when the output matches `expected.txt` by the site's rules, within the limits. Standard output is compared line by line; spaces at the end of a line and blank lines at the end do not count. If that differs, standard output followed by standard error is compared with Python traceback frames and blank lines set aside, so a lesson that shows an error passes when your program prints the same error. A pass here is a pass on the site.
+It passes when the output matches `expected.txt` by the site's rules, within the limits. Standard output and standard error are compared after what depends on the machine or the git release is masked: object ids, dates, temporary directories, transfer sizes, the git version, `hint:` advice lines, the padding of counts and blank lines. A pass here is a pass on the site.
 
 ---
 
