@@ -178,7 +178,9 @@ def command_for(lab, home, tmp):
     if r == 'terraform-validate':
         return ['sh', '-c', TERRAFORM_VALIDATE], False, terraform_env()
     if r == 'csharp':
-        return ['dotnet', 'run', '--no-build'], False, dict(DOTNET_ENV)
+        # The assembly build_csharp() builds (it runs first), run as the site runs it.
+        return ['dotnet', 'exec', csharp_assembly(home)], False, {
+            **DOTNET_ENV, 'DOTNET_CLI_HOME': tmp, 'NUGET_PACKAGES': os.path.join(tmp, 'nuget')}
     if r == 'java':
         return ['java', f'-Djava.io.tmpdir={tmp}', f], False, {}
     if r == 'go':
@@ -198,19 +200,36 @@ def command_for(lab, home, tmp):
 # Variables passed through from your shell, beyond the sandbox's own (toolchains that find themselves by them).
 PASS_THROUGH = ('JAVA_HOME', 'GOROOT', 'SSL_CERT_FILE', 'SYSTEMROOT', 'DOTNET_ROOT')
 DOTNET_ENV = {'DOTNET_CLI_TELEMETRY_OPTOUT': '1', 'DOTNET_NOLOGO': '1', 'DOTNET_SKIP_FIRST_TIME_EXPERIENCE': '1'}
+# Where the site's output shows a C# program's own assembly (run_lab.py CSHARP_OUT_SHOWN).
+CSHARP_OUT_SHOWN = '/work/bin/Debug/net10.0'
+
+
+def csharp_dirs(home):
+    """The run's build directory (a copy of the sources) and its output directory, beside the program's."""
+    build = os.path.join(os.path.dirname(home), 'build')
+    return build, os.path.join(build, 'out')
+
+
+def csharp_assembly(home):
+    project = next((n for n in sorted(os.listdir(home)) if n.endswith('.csproj')), 'snippet.csproj')
+    return os.path.join(csharp_dirs(home)[1], os.path.splitext(project)[0] + '.dll')
 
 
 def build_csharp(home, env):
-    """`dotnet build` of the lab's project before the timed run (the site compiles within its limit with a warm
-    compiler; a cold local build would not fit). Its warnings and errors come first, as `dotnet run` shows
-    them. Returns (ok, output)."""
+    """`dotnet build` of the lab's project, from a copy of it, before the timed run (the site compiles within its
+    limit with a warm compiler; a cold local build would not fit). Its warnings and errors come first, as
+    `dotnet run` shows them. Returns (ok, output)."""
+    build, out = csharp_dirs(home)
+    shutil.copytree(home, build)
     try:
-        proc = subprocess.run(['dotnet', 'build', '--nologo', '-v', 'quiet', '-clp:NoSummary'], cwd=home, env=env,
-                              stdin=subprocess.DEVNULL, capture_output=True, timeout=300)
+        proc = subprocess.run(['dotnet', 'build', '--nologo', '-v', 'quiet', '-clp:NoSummary', '-o', out], cwd=build,
+                              env=env, stdin=subprocess.DEVNULL, capture_output=True, timeout=300)
     except subprocess.TimeoutExpired:
         return False, 'dotnet build did not finish in 5 minutes\n'
-    out = (proc.stdout + proc.stderr).decode('utf-8', 'replace')
-    return proc.returncode == 0, out
+    text = (proc.stdout + proc.stderr).decode('utf-8', 'replace')
+    # Names as the site shows them: the sources in the program's directory.
+    text = re.sub(rf'(?<![\w./-]){re.escape(build)}(?![\w.-])', home, text)
+    return proc.returncode == 0, text
 
 
 class Capped:
@@ -355,9 +374,12 @@ def execute(lab):
             result = run_capped(argv, home, env, stdin_bytes)
             result['stdout'] = prefix + result['stdout']
         # Paths as the site shows them: the program's directory as /work (relative before a file name), its
-        # scratch space as /tmp.
+        # scratch space as /tmp, and a C# program's own assembly directory as the SDK's output directory.
         for key in ('stdout', 'stderr'):
-            text = re.sub(rf'(?<![\w./-]){re.escape(home)}/', '', result[key])
+            text = result[key]
+            if lab['runner'] == 'csharp':
+                text = re.sub(rf'(?<![\w./-]){re.escape(csharp_dirs(home)[1])}(?![\w.-])', CSHARP_OUT_SHOWN, text)
+            text = re.sub(rf'(?<![\w./-]){re.escape(home)}/', '', text)
             text = re.sub(rf'(?<![\w./-]){re.escape(home)}(?![\w.-])', '/work', text)
             result[key] = re.sub(rf'(?<![\w./-]){re.escape(tmp)}(?![\w.-])', '/tmp', text)
         return result
@@ -523,12 +545,14 @@ def lint_syntax(problems, missing):
                 missing.add('dotnet')
                 continue
             base = tempfile.mkdtemp(prefix='learnsome-dotnet-')
+            home = os.path.join(base, 'home')
             try:
                 for name in lab['files']:
-                    target = os.path.join(base, name)
+                    target = os.path.join(home, name)
                     os.makedirs(os.path.dirname(target), exist_ok=True)
                     shutil.copyfile(os.path.join(lab['dir'], 'starter', name), target)
-                ok, out = build_csharp(base, {**os.environ, 'PATH': SEARCH_PATH, **DOTNET_ENV})
+                ok, out = build_csharp(home, {**os.environ, 'PATH': SEARCH_PATH, **DOTNET_ENV,
+                                              'DOTNET_CLI_HOME': base, 'NUGET_PACKAGES': os.path.join(base, 'nuget')})
             finally:
                 shutil.rmtree(base, ignore_errors=True)
             if not ok:
@@ -571,11 +595,22 @@ def lint_syntax(problems, missing):
             if not which('javac'):
                 missing.add('javac')
                 continue
+            # `java File.java` compiles that one file, whatever its public type is called; javac wants the file
+            # named after it, so the check compiles a copy under that name.
+            with open(os.path.join(lab['dir'], 'starter', lab['main']), encoding='utf-8') as f:
+                source = f.read()
+            m = PUBLIC_TYPE.search(source)
             out = tempfile.mkdtemp(prefix='learnsome-javac-')
-            res = subprocess.run(['javac', '-proc:none', '-nowarn', '-d', out, *java_files], capture_output=True, text=True)
+            copy = os.path.join(out, f'{m.group(1) if m else os.path.splitext(lab["main"])[0]}.java')
+            with open(copy, 'w', encoding='utf-8') as f:
+                f.write(source)
+            res = subprocess.run(['javac', '-proc:none', '-nowarn', '-d', out, copy], capture_output=True, text=True)
             shutil.rmtree(out, ignore_errors=True)
             if res.returncode != 0:
-                problems.append(f"{lab['relDir']}/starter: does not compile\n" + '\n'.join(res.stderr.strip().split('\n')[:6]))
+                problems.append(f"{lab['relDir']}/starter/{lab['main']}: does not compile\n" + '\n'.join(res.stderr.strip().split('\n')[:6]))
+
+
+PUBLIC_TYPE = re.compile(r'^\s*public\s+(?:(?:abstract|final|sealed|non-sealed|static|strictfp)\s+)*(?:class|record|interface|enum|@interface)\s+(\w+)', re.M)
 
 
 def lint(strict):

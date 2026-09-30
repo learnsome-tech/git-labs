@@ -19,7 +19,7 @@ This repository holds the labs of the LearnSome.tech course [Advanced Git Intern
 
 [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/learnsome-tech/git-labs?quickstart=1)
 
-- **Codespaces:** the badge opens this repository in a dev container with Python 3.14.7 and Git 2.34 (Ubuntu 22.04's), the versions the site's lab sandbox uses.
+- **Codespaces:** the badge opens this repository in a dev container with Python 3.14.7 and Git 2.34 (Ubuntu 22.04's), as in the site's lab sandbox.
 - **On your machine:**
 
   ```sh
@@ -28,7 +28,7 @@ This repository holds the labs of the LearnSome.tech course [Advanced Git Intern
   ./check m01l01-02
   ```
 
-  You need Python 3 for `./check`, and for the labs themselves Python 3.14.7 and Git 2.34 (Ubuntu 22.04's). Other versions mostly work, but only the versions above are sure to print what the site prints. VS Code's Dev Containers extension builds the same container as Codespaces (x86-64).
+  You need Python 3 for `./check`, and for the labs themselves Python 3.14.7 and Git 2.34 (Ubuntu 22.04's). Other versions mostly work, but only the sandbox's versions are sure to print what the site prints. VS Code's Dev Containers extension builds the same container as Codespaces (x86-64).
 
 ## Doing a lab
 
