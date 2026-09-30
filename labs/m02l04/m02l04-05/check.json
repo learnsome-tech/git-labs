@@ -2,7 +2,7 @@
   "lab": "m02l04-05",
   "lesson": "m02l04",
   "title": "Filtering: dates, people, words, and a vanished string",
-  "mode": "run",
+  "mode": "graded",
   "runner": "bash",
   "command": "bash session.sh",
   "main": "session.sh",
@@ -10,12 +10,12 @@
     "session.sh"
   ],
   "stdin": null,
-  "expected": null,
-  "grading": null,
+  "expected": "expected.txt",
+  "grading": "shape",
   "requires": [
     "bash",
     "git"
   ],
   "mergeStderr": true,
-  "note": "the recorded output depends on the machine it ran on, so the site runs it without a pass or fail."
+  "note": null
 }

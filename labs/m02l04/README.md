@@ -11,7 +11,7 @@ Module 2: Everyday Git · lesson 2.4 · Pro · [Open the lesson](https://learnso
 | [m02l04-02](m02l04-02/) | What plain git log prints, and the oneline habit | Graded |
 | [m02l04-03](m02l04-03/) | Shaping the list: graph, a count, a format of your own | Graded |
 | [m02l04-04](m02l04-04/) | Which files a commit touched, and when one was last edited | Graded |
-| [m02l04-05](m02l04-05/) | Filtering: dates, people, words, and a vanished string | Runs, not graded |
+| [m02l04-05](m02l04-05/) | Filtering: dates, people, words, and a vanished string | Graded |
 | [m02l04-06](m02l04-06/) | The patch flag: the change itself, one file at a time | Graded |
 | [m02l04-07](m02l04-07/) | Show: one commit, and one file as it was then | Graded |
 | [m02l04-09](m02l04-09/) | Between two commits, in two dots and in three | Graded |

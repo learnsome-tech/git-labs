@@ -1,7 +1,7 @@
 # m02l04-05 · Filtering: dates, people, words, and a vanished string
 
 **Lesson:** [Reading History: log, show And diff](https://learnsome.tech/learn/git-course/m02l04) (lesson 2.4, module 2: Everyday Git) · Pro  
-**Check:** Runs, not graded
+**Check:** Graded
 
 ## Goal
 
@@ -12,6 +12,7 @@ In the lesson: Now stop scrolling and start filtering. The since and until flags
 ## Files
 
 - [`starter/session.sh`](starter/session.sh): the listing from the lesson
+- [`expected.txt`](expected.txt): the output the check compares with
 - [`check.json`](check.json): how `./check` runs and checks this lab
 
 ## Steps
@@ -29,9 +30,7 @@ In the lesson: Now stop scrolling and start filtering. The since and until flags
 4. Run it: `bash session.sh`.
 5. Check it from the repository root: `./check m02l04-05`.
 
-## What the lesson recorded
-
-Shown for reference; the check does not compare it.
+## Expected output
 
 ```text
 $ git log --oneline --since=2024-03-05 --until=2024-03-06
@@ -53,7 +52,7 @@ c96fe7e feat: add the parser
 
 `./check m02l04-05` copies `starter/` into a scratch directory and runs `bash session.sh` there, the way the site's lab sandbox does: that directory is the working directory and `HOME`, `LANG=C.UTF-8`, `TZ=UTC`, a limit of 10 seconds and 256 KiB of output per stream.
 
-It runs without a pass or fail: the recorded output depends on the machine it ran on, so the site runs it without a pass or fail. `./check` shows the output and the exit code.
+It passes when the output matches `expected.txt` by the site's rules, within the limits. undefined A pass here is a pass on the site.
 
 ---
 
