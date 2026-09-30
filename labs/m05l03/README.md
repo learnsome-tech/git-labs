@@ -1,19 +1,21 @@
-# Why Conflicts Happen
+# m05l03 · Why Conflicts Happen
 
-**Course**: [Advanced Git Internals & Distributed Workflows](https://learnsome.tech/courses/git-course)  
-**Module**: Working With Other People  
-**Lesson**: `m05l03`
+Module 5: Working With Other People · lesson 5.3 · Pro · [Open the lesson](https://learnsome.tech/learn/git-course/m05l03)
 
-## Links
+**Goal:** You will understand how Git detects a conflict by comparing two branches against their merge base.
 
-- [Watch lesson](https://learnsome.tech/courses/git-course/watch?lesson=m05l03)
-- [Handbook](https://learnsome.tech/courses/git-course/book#lesson-5-3)
-- [Exercises](EXERCISES.md)
+## Labs
 
-## Artifact directories
+| Lab | What it is | Check |
+| --- | --- | --- |
+| [m05l03-03](m05l03-03/) | Panel 2 | Graded |
 
-- [`m05l03-03/`](m05l03-03/)
+## Check yourself
+
+- What is a merge base?
+- Why does Git usually merge files automatically?
+- What specific situation causes a merge conflict?
 
 ---
 
-© LearnSome.tech · support@iwantto.learnsome.tech
+[Course README](../../README.md) · [Advanced Git Internals & Distributed Workflows on LearnSome.tech](https://learnsome.tech/courses/git-course)

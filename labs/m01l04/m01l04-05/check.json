@@ -1,0 +1,20 @@
+{
+  "lab": "m01l04-05",
+  "lesson": "m01l04",
+  "title": "Following the tree down to the file",
+  "mode": "graded",
+  "runner": "bash",
+  "command": "bash session.sh",
+  "main": "session.sh",
+  "files": [
+    "session.sh"
+  ],
+  "stdin": null,
+  "expected": "expected.txt",
+  "grading": "lines",
+  "requires": [
+    "bash",
+    "git"
+  ],
+  "note": null
+}

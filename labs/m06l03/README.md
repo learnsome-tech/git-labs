@@ -1,20 +1,22 @@
-# Cherry Picking, Reflog, And Getting Work Back
+# m06l03 · Cherry Picking, Reflog, And Getting Work Back
 
-**Course**: [Advanced Git Internals & Distributed Workflows](https://learnsome.tech/courses/git-course)  
-**Module**: Rewriting History, Tags And Workflows  
-**Lesson**: `m06l03`
+Module 6: Rewriting History, Tags And Workflows · lesson 6.3 · Pro · [Open the lesson](https://learnsome.tech/learn/git-course/m06l03)
 
-## Links
+**Goal:** Copy individual commits to a different branch and recover lost commits using the reflog.
 
-- [Watch lesson](https://learnsome.tech/courses/git-course/watch?lesson=m06l03)
-- [Handbook](https://learnsome.tech/courses/git-course/book#lesson-6-3)
-- [Exercises](EXERCISES.md)
+## Labs
 
-## Artifact directories
+| Lab | What it is | Check |
+| --- | --- | --- |
+| [m06l03-02](m06l03-02/) | Cherry Picking a Specific Commit | Read along |
+| [m06l03-04](m06l03-04/) | Recovering Lost Commits with Reflog | Read along |
 
-- [`m06l03-02/`](m06l03-02/)
-- [`m06l03-04/`](m06l03-04/)
+## Check yourself
+
+- When would you use cherry pick instead of merge?
+- What does the git reflog record?
+- How can you recover a commit that is no longer reachable from any branch?
 
 ---
 
-© LearnSome.tech · support@iwantto.learnsome.tech
+[Course README](../../README.md) · [Advanced Git Internals & Distributed Workflows on LearnSome.tech](https://learnsome.tech/courses/git-course)

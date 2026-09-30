@@ -1,0 +1,19 @@
+{
+  "lab": "m01l01-02",
+  "lesson": "m01l01",
+  "title": "The folder doing a history's job",
+  "mode": "graded",
+  "runner": "bash",
+  "command": "bash session.sh",
+  "main": "session.sh",
+  "files": [
+    "session.sh"
+  ],
+  "stdin": null,
+  "expected": "expected.txt",
+  "grading": "lines",
+  "requires": [
+    "bash"
+  ],
+  "note": null
+}

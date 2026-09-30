@@ -1,20 +1,22 @@
-# Tags And Releases
+# m06l05 · Tags And Releases
 
-**Course**: [Advanced Git Internals & Distributed Workflows](https://learnsome.tech/courses/git-course)  
-**Module**: Rewriting History, Tags And Workflows  
-**Lesson**: `m06l05`
+Module 6: Rewriting History, Tags And Workflows · lesson 6.5 · Pro · [Open the lesson](https://learnsome.tech/learn/git-course/m06l05)
 
-## Links
+**Goal:** Mark specific commits as releases using tags, push them to a remote, and associate them with GitHub Releases.
 
-- [Watch lesson](https://learnsome.tech/courses/git-course/watch?lesson=m06l05)
-- [Handbook](https://learnsome.tech/courses/git-course/book#lesson-6-5)
-- [Exercises](EXERCISES.md)
+## Labs
 
-## Artifact directories
+| Lab | What it is | Check |
+| --- | --- | --- |
+| [m06l05-02](m06l05-02/) | Creating and Inspecting Annotated Tags | Read along |
+| [m06l05-03](m06l05-03/) | Pushing Tags to a Remote | Read along |
 
-- [`m06l05-02/`](m06l05-02/)
-- [`m06l05-03/`](m06l05-03/)
+## Check yourself
+
+- What is the difference between a branch and a tag?
+- How do you create an annotated tag?
+- Which command pushes all local tags to the remote repository?
 
 ---
 
-© LearnSome.tech · support@iwantto.learnsome.tech
+[Course README](../../README.md) · [Advanced Git Internals & Distributed Workflows on LearnSome.tech](https://learnsome.tech/courses/git-course)

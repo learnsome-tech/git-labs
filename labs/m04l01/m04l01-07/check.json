@@ -1,0 +1,20 @@
+{
+  "lab": "m04l01-07",
+  "lesson": "m04l01",
+  "title": "Rename it, and nothing breaks",
+  "mode": "graded",
+  "runner": "bash",
+  "command": "bash session.sh",
+  "main": "session.sh",
+  "files": [
+    "session.sh"
+  ],
+  "stdin": null,
+  "expected": "expected.txt",
+  "grading": "lines",
+  "requires": [
+    "bash",
+    "git"
+  ],
+  "note": null
+}

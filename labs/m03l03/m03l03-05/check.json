@@ -1,0 +1,20 @@
+{
+  "lab": "m03l03-05",
+  "lesson": "m03l03",
+  "title": "Both branches moved",
+  "mode": "graded",
+  "runner": "bash",
+  "command": "bash session.sh",
+  "main": "session.sh",
+  "files": [
+    "session.sh"
+  ],
+  "stdin": null,
+  "expected": "expected.txt",
+  "grading": "lines",
+  "requires": [
+    "bash",
+    "git"
+  ],
+  "note": null
+}

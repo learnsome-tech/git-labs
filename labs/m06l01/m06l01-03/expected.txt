@@ -1,6 +1,0 @@
-$ git push origin main
-To ../server.git
- ! [rejected]        main -> main (non-fast-forward)
-error: failed to push some refs to '../server.git'
-hint: Updates were rejected because the tip of your current branch is behind
-hint: its remote counterpart.

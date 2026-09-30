@@ -1,0 +1,20 @@
+{
+  "lab": "m02l01-07",
+  "lesson": "m02l01",
+  "title": "Taking the first change, leaving the second",
+  "mode": "graded",
+  "runner": "bash",
+  "command": "bash session.sh",
+  "main": "session.sh",
+  "files": [
+    "session.sh"
+  ],
+  "stdin": null,
+  "expected": "expected.txt",
+  "grading": "lines",
+  "requires": [
+    "bash",
+    "git"
+  ],
+  "note": null
+}

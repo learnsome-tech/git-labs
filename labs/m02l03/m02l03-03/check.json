@@ -1,0 +1,17 @@
+{
+  "lab": "m02l03-03",
+  "lesson": "m02l03",
+  "title": "One well formed message, read top to bottom",
+  "mode": "read-along",
+  "runner": null,
+  "command": null,
+  "main": "COMMIT_EDITMSG",
+  "files": [
+    "COMMIT_EDITMSG"
+  ],
+  "stdin": null,
+  "expected": null,
+  "grading": null,
+  "requires": [],
+  "note": "It is a listing to read alongside the lesson, not a program to run."
+}

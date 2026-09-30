@@ -1,0 +1,17 @@
+{
+  "lab": "m05l01-02",
+  "lesson": "m05l01",
+  "title": "Branch Naming Conventions",
+  "mode": "read-along",
+  "runner": null,
+  "command": null,
+  "main": "branch-naming-conventions.txt",
+  "files": [
+    "branch-naming-conventions.txt"
+  ],
+  "stdin": null,
+  "expected": null,
+  "grading": null,
+  "requires": [],
+  "note": "It is a listing to read alongside the lesson, not a program to run."
+}

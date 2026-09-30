@@ -1,0 +1,21 @@
+{
+  "lab": "m05l03-03",
+  "lesson": "m05l03",
+  "title": "Panel 2",
+  "mode": "graded",
+  "runner": "bash",
+  "command": "bash session.sh",
+  "main": "session.sh",
+  "files": [
+    "session.sh",
+    "shopping.txt"
+  ],
+  "stdin": null,
+  "expected": "expected.txt",
+  "grading": "lines",
+  "requires": [
+    "bash",
+    "git"
+  ],
+  "note": null
+}

@@ -1,0 +1,17 @@
+{
+  "lab": "m04l01-09",
+  "lesson": "m04l01",
+  "title": "Three kinds of ref, all of them files",
+  "mode": "read-along",
+  "runner": null,
+  "command": null,
+  "main": "three-kinds-of-ref-all-of-them-files.txt",
+  "files": [
+    "three-kinds-of-ref-all-of-them-files.txt"
+  ],
+  "stdin": null,
+  "expected": null,
+  "grading": null,
+  "requires": [],
+  "note": "It is a listing to read alongside the lesson, not a program to run."
+}

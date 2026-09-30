@@ -1,0 +1,21 @@
+{
+  "lab": "m02l03-06",
+  "lesson": "m02l03",
+  "title": "A commit message hook, eleven lines of shell",
+  "mode": "graded",
+  "runner": "bash",
+  "command": "bash session.sh",
+  "main": "session.sh",
+  "files": [
+    "commit-msg",
+    "session.sh"
+  ],
+  "stdin": null,
+  "expected": "expected.txt",
+  "grading": "lines",
+  "requires": [
+    "bash",
+    "git"
+  ],
+  "note": null
+}

@@ -1,21 +1,23 @@
-# The Pull Request, And Branch Naming
+# m05l01 · The Pull Request, And Branch Naming
 
-**Course**: [Advanced Git Internals & Distributed Workflows](https://learnsome.tech/courses/git-course)  
-**Module**: Working With Other People  
-**Lesson**: `m05l01`
+Module 5: Working With Other People · lesson 5.1 · Pro · [Open the lesson](https://learnsome.tech/learn/git-course/m05l01)
 
-## Links
+**Goal:** You will be able to prepare, name, and open a pull request.
 
-- [Watch lesson](https://learnsome.tech/courses/git-course/watch?lesson=m05l01)
-- [Handbook](https://learnsome.tech/courses/git-course/book#lesson-5-1)
-- [Exercises](EXERCISES.md)
+## Labs
 
-## Artifact directories
+| Lab | What it is | Check |
+| --- | --- | --- |
+| [m05l01-02](m05l01-02/) | Branch Naming Conventions | Read along |
+| [m05l01-03](m05l01-03/) | Panel 2 | Graded |
+| [m05l01-04](m05l01-04/) | Panel 3 | Read along |
 
-- [`m05l01-02/`](m05l01-02/)
-- [`m05l01-03/`](m05l01-03/)
-- [`m05l01-04/`](m05l01-04/)
+## Check yourself
+
+- What is the difference between an issue and a pull request?
+- Why is a consistent branch naming convention important?
+- How does a pull request relate to a branch?
 
 ---
 
-© LearnSome.tech · support@iwantto.learnsome.tech
+[Course README](../../README.md) · [Advanced Git Internals & Distributed Workflows on LearnSome.tech](https://learnsome.tech/courses/git-course)

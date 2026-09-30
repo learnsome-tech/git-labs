@@ -1,20 +1,22 @@
-# Resolving A Conflict, Line By Line
+# m05l04 · Resolving A Conflict, Line By Line
 
-**Course**: [Advanced Git Internals & Distributed Workflows](https://learnsome.tech/courses/git-course)  
-**Module**: Working With Other People  
-**Lesson**: `m05l04`
+Module 5: Working With Other People · lesson 5.4 · Pro · [Open the lesson](https://learnsome.tech/learn/git-course/m05l04)
 
-## Links
+**Goal:** You will be able to read conflict markers, resolve the file, and complete the merge.
 
-- [Watch lesson](https://learnsome.tech/courses/git-course/watch?lesson=m05l04)
-- [Handbook](https://learnsome.tech/courses/git-course/book#lesson-5-4)
-- [Exercises](EXERCISES.md)
+## Labs
 
-## Artifact directories
+| Lab | What it is | Check |
+| --- | --- | --- |
+| [m05l04-01](m05l04-01/) | Reading the Markers | Read along |
+| [m05l04-02](m05l04-02/) | Panel 1 | Graded |
 
-- [`m05l04-01/`](m05l04-01/)
-- [`m05l04-02/`](m05l04-02/)
+## Check yourself
+
+- What do the equals signs in a conflict marker mean?
+- How do you tell Git that you have resolved a conflict in a file?
+- What command cancels a merge that is in progress?
 
 ---
 
-© LearnSome.tech · support@iwantto.learnsome.tech
+[Course README](../../README.md) · [Advanced Git Internals & Distributed Workflows on LearnSome.tech](https://learnsome.tech/courses/git-course)
