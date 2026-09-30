@@ -11,7 +11,7 @@
   ],
   "stdin": null,
   "expected": "expected.txt",
-  "grading": "shape",
+  "grading": "git",
   "requires": [
     "bash",
     "git"

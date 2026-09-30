@@ -33,7 +33,7 @@ In the lesson: Now stop scrolling and start filtering. The since and until flags
 ## Expected output
 
 ```text
-$ git log --oneline --since=2024-03-05 --until=2024-03-06
+$ git log --oneline --since='2024-03-05 00:00' --until='2024-03-06 00:00'
 9b5643d fix: handle an empty line in the parser
 bf2d618 feat: add the command line entry point
 $ git log --oneline --author=Hopper
@@ -52,7 +52,7 @@ c96fe7e feat: add the parser
 
 `./check m02l04-05` copies `starter/` into a scratch directory and runs `bash session.sh` there, the way the site's lab sandbox does: that directory is the working directory and `HOME`, `LANG=C.UTF-8`, `TZ=UTC`, a limit of 10 seconds and 256 KiB of output per stream.
 
-It passes when the output matches `expected.txt` by the site's rules, within the limits. undefined A pass here is a pass on the site.
+It passes when the output matches `expected.txt` by the site's rules, within the limits. Standard output and standard error are compared after what depends on the machine or the git release is masked: object ids, dates, temporary directories, transfer sizes, the git version, `hint:` advice lines, the padding of counts and blank lines. A pass here is a pass on the site.
 
 ---
 

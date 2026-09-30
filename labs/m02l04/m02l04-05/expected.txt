@@ -1,4 +1,4 @@
-$ git log --oneline --since=2024-03-05 --until=2024-03-06
+$ git log --oneline --since='2024-03-05 00:00' --until='2024-03-06 00:00'
 9b5643d fix: handle an empty line in the parser
 bf2d618 feat: add the command line entry point
 $ git log --oneline --author=Hopper

@@ -76,8 +76,8 @@ git commit -q -m 'test: cover the parser'
 set +e
 
 # --- what the video shows ---
-echo "$ git log --oneline --since=2024-03-05 --until=2024-03-06"
-git log --oneline --since=2024-03-05 --until=2024-03-06
+echo "$ git log --oneline --since='2024-03-05 00:00' --until='2024-03-06 00:00'"
+git log --oneline --since='2024-03-05 00:00' --until='2024-03-06 00:00'
 echo "$ git log --oneline --author=Hopper"
 git log --oneline --author=Hopper
 echo "$ git log --oneline --grep=parser"
