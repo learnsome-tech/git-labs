@@ -1,0 +1,20 @@
+{
+  "lab": "m02l01-09",
+  "lesson": "m02l01",
+  "title": "Taking something back out of the index",
+  "mode": "graded",
+  "runner": "bash",
+  "command": "bash session.sh",
+  "main": "session.sh",
+  "files": [
+    "session.sh"
+  ],
+  "stdin": null,
+  "expected": "expected.txt",
+  "grading": "lines",
+  "requires": [
+    "bash",
+    "git"
+  ],
+  "note": null
+}

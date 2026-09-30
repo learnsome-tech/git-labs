@@ -1,0 +1,21 @@
+{
+  "lab": "m02l02-08",
+  "lesson": "m02l02",
+  "title": "A template, so the prompt is waiting for you",
+  "mode": "graded",
+  "runner": "bash",
+  "command": "bash session.sh",
+  "main": "session.sh",
+  "files": [
+    ".gitmessage",
+    "session.sh"
+  ],
+  "stdin": null,
+  "expected": "expected.txt",
+  "grading": "lines",
+  "requires": [
+    "bash",
+    "git"
+  ],
+  "note": null
+}

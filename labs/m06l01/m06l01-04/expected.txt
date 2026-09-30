@@ -1,3 +1,0 @@
-$ git push --force-with-lease origin main
-To ../server.git
- + a1b2c3d...b123456 main -> main (forced update)

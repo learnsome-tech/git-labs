@@ -1,0 +1,20 @@
+{
+  "lab": "m02l05-07",
+  "lesson": "m02l05",
+  "title": "A private list, and a nested list that overrules it",
+  "mode": "graded",
+  "runner": "bash",
+  "command": "bash session.sh",
+  "main": "session.sh",
+  "files": [
+    "session.sh"
+  ],
+  "stdin": null,
+  "expected": "expected.txt",
+  "grading": "lines",
+  "requires": [
+    "bash",
+    "git"
+  ],
+  "note": null
+}

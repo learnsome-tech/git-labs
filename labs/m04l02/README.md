@@ -1,20 +1,23 @@
-# Clone, Forks, Push, And The Upstream Branch
+# m04l02 · Clone, Forks, Push, And The Upstream Branch
 
-**Course**: [Advanced Git Internals & Distributed Workflows](https://learnsome.tech/courses/git-course)  
-**Module**: Remotes  
-**Lesson**: `m04l02`
+Module 4: Remotes · lesson 4.2 · Pro · [Open the lesson](https://learnsome.tech/learn/git-course/m04l02)
 
-## Links
+**Goal:** The learner can clone a repository, push changes to a remote, and explain the difference between a clone and a fork.
 
-- [Watch lesson](https://learnsome.tech/courses/git-course/watch?lesson=m04l02)
-- [Handbook](https://learnsome.tech/courses/git-course/book#lesson-4-2)
-- [Exercises](EXERCISES.md)
+## Labs
 
-## Artifact directories
+| Lab | What it is | Check |
+| --- | --- | --- |
+| [m04l02-02](m04l02-02/) | Cloning a Remote Repository | Graded |
+| [m04l02-03](m04l02-03/) | Checking Status and Pushing Ahead | Graded |
 
-- [`m04l02-02/`](m04l02-02/)
-- [`m04l02-03/`](m04l02-03/)
+## Check yourself
+
+- Is fork a built in git command?
+- What does git clone do automatically?
+- What is an upstream branch?
+- Why do you fork a repository before cloning it?
 
 ---
 
-© LearnSome.tech · support@iwantto.learnsome.tech
+[Course README](../../README.md) · [Advanced Git Internals & Distributed Workflows on LearnSome.tech](https://learnsome.tech/courses/git-course)

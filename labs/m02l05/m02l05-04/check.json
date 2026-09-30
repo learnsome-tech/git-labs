@@ -1,0 +1,20 @@
+{
+  "lab": "m02l05-04",
+  "lesson": "m02l05",
+  "title": "The fix: out of the index, still on disk",
+  "mode": "graded",
+  "runner": "bash",
+  "command": "bash session.sh",
+  "main": "session.sh",
+  "files": [
+    "session.sh"
+  ],
+  "stdin": null,
+  "expected": "expected.txt",
+  "grading": "lines",
+  "requires": [
+    "bash",
+    "git"
+  ],
+  "note": null
+}

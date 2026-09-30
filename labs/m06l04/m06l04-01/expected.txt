@@ -1,4 +1,0 @@
-$ git blame app.js
-a1b2c3d4 (Author Name 1970-01-01 00:00:00 +0000 1) function main() {
-e5f6g7h8 (Author Name 1970-01-01 01:00:00 +0000 2)   console.log("Hello");
-a1b2c3d4 (Author Name 1970-01-01 00:00:00 +0000 3) }

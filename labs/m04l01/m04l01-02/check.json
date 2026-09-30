@@ -1,0 +1,20 @@
+{
+  "lab": "m04l01-02",
+  "lesson": "m04l01",
+  "title": "Making the server: a repository with no working tree",
+  "mode": "graded",
+  "runner": "bash",
+  "command": "bash session.sh",
+  "main": "session.sh",
+  "files": [
+    "session.sh"
+  ],
+  "stdin": null,
+  "expected": "expected.txt",
+  "grading": "lines",
+  "requires": [
+    "bash",
+    "git"
+  ],
+  "note": null
+}

@@ -1,5 +1,0 @@
-$ git cherry-pick 2b3c4d5
-[main 5e6f7g8] Fix a critical bug
- Date: Thu Jan 1 00:00:00 1970 +0000
- 1 file changed, 1 insertion(+)
- create mode 100644 fix.txt

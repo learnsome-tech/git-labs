@@ -1,0 +1,17 @@
+{
+  "lab": "m02l01-05",
+  "lesson": "m02l01",
+  "title": "What adding a path actually stages",
+  "mode": "read-along",
+  "runner": null,
+  "command": null,
+  "main": "what-adding-a-path-actually-stages.txt",
+  "files": [
+    "what-adding-a-path-actually-stages.txt"
+  ],
+  "stdin": null,
+  "expected": null,
+  "grading": null,
+  "requires": [],
+  "note": "It is a listing to read alongside the lesson, not a program to run."
+}

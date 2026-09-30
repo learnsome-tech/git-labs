@@ -1,0 +1,20 @@
+{
+  "lab": "m04l01-05",
+  "lesson": "m04l01",
+  "title": "Asking what is actually over there",
+  "mode": "graded",
+  "runner": "bash",
+  "command": "bash session.sh",
+  "main": "session.sh",
+  "files": [
+    "session.sh"
+  ],
+  "stdin": null,
+  "expected": "expected.txt",
+  "grading": "lines",
+  "requires": [
+    "bash",
+    "git"
+  ],
+  "note": null
+}

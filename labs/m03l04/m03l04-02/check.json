@@ -1,0 +1,20 @@
+{
+  "lab": "m03l04-02",
+  "lesson": "m03l04",
+  "title": "The fork we are going to remove",
+  "mode": "graded",
+  "runner": "bash",
+  "command": "bash session.sh",
+  "main": "session.sh",
+  "files": [
+    "session.sh"
+  ],
+  "stdin": null,
+  "expected": "expected.txt",
+  "grading": "lines",
+  "requires": [
+    "bash",
+    "git"
+  ],
+  "note": null
+}

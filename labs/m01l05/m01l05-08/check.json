@@ -1,0 +1,20 @@
+{
+  "lab": "m01l05-08",
+  "lesson": "m01l05",
+  "title": "Proving the index is a real thing",
+  "mode": "graded",
+  "runner": "bash",
+  "command": "bash session.sh",
+  "main": "session.sh",
+  "files": [
+    "session.sh"
+  ],
+  "stdin": null,
+  "expected": "expected.txt",
+  "grading": "lines",
+  "requires": [
+    "bash",
+    "git"
+  ],
+  "note": null
+}

@@ -1,7 +1,0 @@
-$ git commit --amend -m 'Add file and update'
-[main b123456] Add file and update
- Date: Thu Jan 1 00:00:00 1970 +0000
- 1 file changed, 1 insertion(+)
- create mode 100644 file.txt
-$ git log --oneline
-b123456 Add file and update

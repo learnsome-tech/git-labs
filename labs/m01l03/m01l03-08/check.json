@@ -1,0 +1,20 @@
+{
+  "lab": "m01l03-08",
+  "lesson": "m01l03",
+  "title": "Where the repository ends, and which one you are in",
+  "mode": "graded",
+  "runner": "bash",
+  "command": "bash session.sh",
+  "main": "session.sh",
+  "files": [
+    "session.sh"
+  ],
+  "stdin": null,
+  "expected": "expected.txt",
+  "grading": "lines",
+  "requires": [
+    "bash",
+    "git"
+  ],
+  "note": null
+}

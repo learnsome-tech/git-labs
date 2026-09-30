@@ -1,19 +1,21 @@
-# Reviewing Code Well
+# m05l02 · Reviewing Code Well
 
-**Course**: [Advanced Git Internals & Distributed Workflows](https://learnsome.tech/courses/git-course)  
-**Module**: Working With Other People  
-**Lesson**: `m05l02`
+Module 5: Working With Other People · lesson 5.2 · Pro · [Open the lesson](https://learnsome.tech/learn/git-course/m05l02)
 
-## Links
+**Goal:** You will be able to review code constructively and manage repository collaborators.
 
-- [Watch lesson](https://learnsome.tech/courses/git-course/watch?lesson=m05l02)
-- [Handbook](https://learnsome.tech/courses/git-course/book#lesson-5-2)
-- [Exercises](EXERCISES.md)
+## Labs
 
-## Artifact directories
+| Lab | What it is | Check |
+| --- | --- | --- |
+| [m05l02-03](m05l02-03/) | A Pull Request Template | Read along |
 
-- [`m05l02-03/`](m05l02-03/)
+## Check yourself
+
+- What is the main goal of a code review?
+- Why is it important to keep pull requests small?
+- How do branch protection rules help a team?
 
 ---
 
-© LearnSome.tech · support@iwantto.learnsome.tech
+[Course README](../../README.md) · [Advanced Git Internals & Distributed Workflows on LearnSome.tech](https://learnsome.tech/courses/git-course)

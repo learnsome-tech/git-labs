@@ -1,0 +1,18 @@
+{
+  "lab": "m06l01-03",
+  "lesson": "m06l01",
+  "title": "Rejected Push After Rewriting History",
+  "mode": "read-along",
+  "runner": null,
+  "command": null,
+  "main": "session.sh",
+  "files": [
+    "NEEDS.md",
+    "session.sh"
+  ],
+  "stdin": null,
+  "expected": null,
+  "grading": null,
+  "requires": [],
+  "note": "It is a listing to read alongside the lesson, not a program to run."
+}
